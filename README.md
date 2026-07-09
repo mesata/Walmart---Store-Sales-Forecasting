@@ -112,3 +112,7 @@
 
 ექსპერიმენტების სრული ლოგები:
  🏃 **View MLflow Run:** [XGBoost_with_Lags on DagsHub](https://dagshub.com/mesata/Walmart---Store-Sales-Forecasting.mlflow/#/experiments/0/runs/0393ea8707724ac28034098af584d816)
+
+ ამ მოდელმა kaggle-ზე ასეთი შედეგი აჩვენა:
+ <img width="1192" height="143" alt="image" src="https://github.com/user-attachments/assets/567f37bd-7afa-4234-910a-f5d3c4b6f738" />
+
