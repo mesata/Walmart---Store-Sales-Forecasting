@@ -248,7 +248,9 @@ val 1739.53
 ##  პაიპლაინად შეფუთვა (ინფერენსისთვის)
 XGBoost ბეზლაინისგან განსხვავებით (რომელიც ერთი sklearn Pipeline ობიექტია), ეს პროექტი აშენებს ~3,254 დამოუკიდებელ Prophet მოდელს — თითოეულს (Store, Dept) წყვილისთვის. ეს მოდელები მოქცეულია `ProphetPerSeriesForecaster` კლასში (`prophet_pipeline.py`), რომელსაც აქვს `.fit(train_df)` / `.predict(future_df)` მეთოდები, რათა გარედან ისე გამოიყურებოდეს, როგორც ერთიანი მოდელი.
 
-ვინაიდან Prophet ობიექტები არ არის თავსებადი MLflow-ს ნაგულისხმევ `skops` სერიალიზატორთან Custom კლასებისთვის, ფორკასტერი დალოგილია `mlflow.pyfunc.log_model`-ით `cloudpickle` სერიალიზაციის გამოყენებით (იგივე ფიქსი დაგვჭირდა ადრე sklearn-ში შეფუთულ `ProphetBaseline` კლასზეც). ეს წარმოქმნის ერთიან MLflow მოდელის არტიფაქტს, რომლის ჩატვირთვაც შესაძლებელია `mlflow.pyfunc.load_model(model_uri)` ბრძანებით და გამოძახება `.predict(df)`-ით, ზუსტად ისე, როგორც XGBoost პაიპლაინი იტვირთება ინფერენსისთვის (inference).
+<img width="877" height="87" alt="image" src="https://github.com/user-attachments/assets/40381d00-2200-43d4-9984-efd621561570" />
+
+საბოლოო დასკვნა: per-series Prophet ამ დატასეტზე XGBoost-ს მნიშვნელოვნად ჩამორჩება (public 5623 vs 3111). lag-based feature engineering (lag_51/52/53) ამ ამოცანისთვის უფრო ეფექტური მიდგომაა, ვიდრე per-series დროითი მწკრივის მოდელირება ცალკეული holiday-ცვლადებით.
 
 🏃 **View Prophet Experiments:** https://dagshub.com/mesata/Walmart---Store-Sales-Forecasting.mlflow/#/experiments/5/runs?searchFilter=&orderByKey=attributes.start_time&orderByAsc=false&startTime=ALL&lifecycleFilter=Active&modelVersionFilter=All+Runs&datasetsFilter=W10%3D 
 
