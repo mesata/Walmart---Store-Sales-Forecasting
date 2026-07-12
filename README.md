@@ -352,6 +352,7 @@ Baseline-ის საეჭვოდ დაბალმა val_wmae-მ (1,499)
 | even_finer | 104 | 4 / 2 | 600 | 1,380.01 |
 | **finer_more_steps** | **104** | **8 / 4** | **1000** | **1,362.83** ✅ |
 
+
 **ტენდენციები:**
 - `input_size` 52→104 (2 წლიანი ისტორია, ორი სრული სეზონური ციკლი) — მკაფიო გაუმჯობესება
 - უფრო წვრილი `patch_len`/`stride` (16/8 → 8/4) — ასევე ეხმარება
@@ -361,6 +362,10 @@ Baseline-ის საეჭვოდ დაბალმა val_wmae-მ (1,499)
 **Lightning-ის internal early stopping (`early_stop_patience_steps`)** რამდენჯერმე ჩავარდა `ptl/val_loss` metric-key mismatch-ის გამო. ამიტომ გადავწყვიტეთ გამოგვეყენებინა fixed `max_steps` სხვადასხვა კონფიგურაციებში + ჩვენი საკუთარი `val_wmae` შედარება იძლევა იმავე ინფორმაციას (სად იწყება overfitting).
 
 ### საბოლოო მოდელი და submission
+
+<img width="678" height="310" alt="Screenshot 2026-07-12 164151" src="https://github.com/user-attachments/assets/944f7389-e1cd-463a-a567-8bd8c0f51b3a" />
+<img width="817" height="363" alt="Screenshot 2026-07-12 165229" src="https://github.com/user-attachments/assets/fa6cf420-b32f-4ca8-ae40-67d05fa43b97" />
+
 
 საუკეთესო კონფიგურაცია (`finer_more_steps`) ხელახლა გაწვრთნილია:
 - **მთელ** ისტორიაზე (train+val გაერთიანებული, არა მხოლოდ split-ის train ნაწილი)
