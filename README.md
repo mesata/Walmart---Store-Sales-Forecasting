@@ -560,4 +560,12 @@ ARIMA და SARIMA ორივე კლასიკური სტატი�
 https://dagshub.com/mesata/Walmart---Store-Sales-Forecasting.mlflow/#/experiments
 
 
+## DLinear Model Experiments Summary
 
+| Run Name | Status | Epochs | ptl/val_loss | train_loss_epoch | valid_loss | Notes / Description |
+| :--- | :---: | :---: | :---: | :---: | :---: | :--- |
+| **`DLinear_FinalRun`** |  Success | 16 | **1544.78** | **0.6569** | **1546.69** | Best performing configuration, fully trained with optimal hyperparameters. |
+| **`DLinear_ExtendedTraining`** |  Success | 16 | 1544.78 | 0.6569 | 1546.69 | Successful run exploring a higher epoch ceiling to reach convergence. |
+| **`DLinear_ExtendedKernel`** |  Success | 5 | 1570.69 | 0.6956 | 1572.68 | Experimented with larger input windows/kernel sizes for trend decomposition. |
+| **`DLinear_BaselineRun`** |  Success | 5 | 1569.44 | 0.6949 | 1571.43 | Initial baseline deep learning architecture using default Nixtla setup. |
+| **`DLinear_Preprocessing`** |  Success | - | - | - | - | Data transformation step: reshaping into long-format (`unique_id`, `ds`, `y`). |
